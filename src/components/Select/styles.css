@@ -1,0 +1,26 @@
+/* ONLY FOR ANIMATION OF OPTIONS IN SELECT */
+
+/* Initial style on mount */
+.options-list-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* Style by the end of mount */
+.options-list-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Initial style at the start of unamount */
+.options-list-exit {
+  opacity: 1;
+}
+
+/* Style by the end of unmount */
+.options-list-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}

@@ -1,0 +1,64 @@
+/* Based on https://codepen.io/Blazephoenix_/pen/xJmmXE */
+
+.loader--hide {
+  display: none;
+}
+
+.loader {
+  background: #eaeaea;
+  width: min(300px, 100% - 2 * 8px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.loader h1 {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.line {
+  height: 3px;
+  width: 100%;
+  background: #e8e8e8;
+}
+
+.inner {
+  width: 100%;
+  height: inherit;
+  background: #0077b5;
+  animation: slide 1.5s ease-in-out infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform-origin: left;
+    transform: scalex(0.3);
+  }
+  25% {
+    transform-origin: left;
+    transform: scalex(1);
+  }
+  26% {
+    transform-origin: right;
+    transform: scalex(1);
+  }
+  50% {
+    transform-origin: right;
+    transform: scalex(0.3);
+  }
+  75% {
+    transform-origin: right;
+    transform: scalex(1);
+  }
+  76% {
+    transform-origin: left;
+    transform: scalex(1);
+  }
+  100% {
+    transform-origin: left;
+    transform: scalex(0.3);
+  }
+}
