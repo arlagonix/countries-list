@@ -1,5 +1,8 @@
-import { useRef } from "react";
 import Svg from "../../global/Svg";
+import { useRef } from "react";
+import { useTheme } from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { digitGroups } from "../../utils/digitGroups";
 import {
   HR,
   Emoji,
@@ -11,10 +14,9 @@ import {
   StyledCountryCard,
   PropertiesContainer,
 } from "./index.styled";
+
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { useTheme } from "styled-components";
-import "./styles.css";
 
 interface CountryCardProps {
   /** Emoji of the country flag */
@@ -29,13 +31,8 @@ interface CountryCardProps {
   capital: string;
   /** Official languages of the country */
   languages: string;
-}
-
-function digitGroups(num: number): string {
-  const strNum = num.toString();
-  let res = strNum.match(/(\d+?)(?=(\d{3})+(?!\d)|$)/g);
-  if (res !== null) return res.join(" ");
-  return "0";
+  /** Country code, used for routing */
+  countryCode: string;
 }
 
 function CountryCard({
@@ -45,12 +42,20 @@ function CountryCard({
   region,
   capital,
   languages,
+  countryCode,
 }: CountryCardProps) {
   const theme = useTheme();
   const iconColor = theme.colors.countryCard.icon;
   const nodeRef = useRef(null);
+  const navigate = useNavigate();
   return (
-    <StyledCountryCard ref={nodeRef}>
+    <StyledCountryCard
+      ref={nodeRef}
+      onClick={() => {
+        navigate(`/${countryCode}`);
+        window.scroll(0, 0);
+      }}
+    >
       <HeaderContainer>
         <Header>{countryName}</Header>
         <Emoji>{flagEmoji}</Emoji>

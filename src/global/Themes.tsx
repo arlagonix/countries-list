@@ -48,6 +48,7 @@ export const lightTheme = {
       placeholder: colors.grayOne,
       text: colors.blackOne,
       focus: colors.blueOne,
+      icon: colors.grayOne,
     },
     countryCard: {
       bg: colors.whiteOne,
@@ -67,6 +68,13 @@ export const lightTheme = {
     },
     countryPage: {
       header: colors.blackOne,
+      text: colors.blackOne,
+      tableBorder: colors.grayTwo,
+      tableBg: colors.whiteOne,
+    },
+    chip: {
+      text: colors.blueOne,
+      bg: colors.lightBlueOne,
     },
   },
   shadows: {
@@ -76,8 +84,50 @@ export const lightTheme = {
 
 export const darkTheme = {
   ...sizes,
+  colors: {
+    pageBg: colors.blackThree,
+    nav: {
+      bg: colors.blackThree,
+      text: colors.whiteOne,
+      hover: colors.blueTwo,
+    },
+    input: {
+      border: colors.grayOne,
+      bg: colors.blackTwo,
+      placeholder: colors.whiteOne,
+      text: colors.whiteOne,
+      focus: colors.blueTwo,
+      icon: colors.whiteOne,
+    },
+    countryCard: {
+      bg: colors.blackTwo,
+      border: colors.grayOne,
+      propertyName: colors.grayTwo,
+      icon: colors.grayTwo,
+      text: colors.whiteOne,
+      hover: colors.blueTwo,
+    },
+    footer: {
+      bg: colors.blackThree,
+      text: colors.whiteOne,
+    },
+    nothingFound: {
+      header: colors.whiteOne,
+      caption: colors.grayTwo,
+    },
+    countryPage: {
+      header: colors.whiteOne,
+      text: colors.whiteOne,
+      tableBorder: colors.grayOne,
+      tableBg: colors.blackTwo,
+    },
+    chip: {
+      text: colors.blueTwo,
+      bg: colors.lightBlueTwo,
+    },
+  },
   shadows: {
-    standard: "box-shadow: 0px 0px 16px rgba(255, 255, 255, 0.25)",
+    standard: "0px 0px 16px rgba(255, 255, 255, 0.15)",
   },
 };
 

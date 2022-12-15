@@ -28,7 +28,7 @@ interface SelectFieldrProps {
 
 export const SelectField = styled.button<SelectFieldrProps>`
   border: 1px solid ${({ theme }) => theme.colors.input.border};
-  background: transparent;
+  background: ${({ theme }) => theme.colors.input.bg};
   border-radius: 8px;
   padding: 0 16px;
   display: flex;
@@ -39,6 +39,7 @@ export const SelectField = styled.button<SelectFieldrProps>`
   text-align: left;
   gap: 4px;
   transition: 0.3s;
+  color: ${({ theme }) => theme.colors.input.text};
 
   &:focus {
     border-color: ${({ theme }) => theme.colors.input.focus};
@@ -111,7 +112,7 @@ export const OptionsList = styled.ul`
   overflow: auto;
   border-radius: 8px;
   box-shadow: 0 0 4px rgb(0 0 0 / 0.25);
-  background: white;
+  background: ${({ theme }) => theme.colors.input.bg};
   margin-top: 8px;
 
   // https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp
@@ -131,13 +132,13 @@ export const ListOption = styled.li`
   display: flex;
   align-items: center;
   cursor: pointer;
+  color: ${({ theme }) => theme.colors.input.text};
 
   :active,
   :focus,
   :hover,
   [aria-selected="true"] {
     background: ${({ theme }) => theme.colors.input.focus};
-    color: ${({ theme }) => theme.colors.input.bg};
   }
 `;
 

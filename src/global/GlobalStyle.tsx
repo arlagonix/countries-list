@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-// import type { ThemeType } from "./Themes";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -11,12 +10,21 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Nunito Sans', sans-serif;
   }
 
-  img, picture, svg, video {
+  // Can't use it because Ant design Image component messes up if img has display: block
+  /* img, picture, svg, video {
     display: block;
     max-width: 100%;
+  } */
+
+  // https://stackoverflow.com/questions/1417934/how-to-prevent-scrollbar-from-repositioning-web-page
+  html {
+    overflow-x: hidden;
+    margin-right: calc(-1 * (100vw - 100%));
   }
 
   body {
+    background-color: ${({ theme }) => theme.colors.pageBg};
+    transition: .3s;
     /* width */
     ::-webkit-scrollbar {
       width: 10px;

@@ -2,7 +2,11 @@
 
 import { useEffect, useRef } from "react";
 
-export default function useEventListener(eventType: string, callback: any, element = window) {
+export default function useEventListener(
+  eventType: string,
+  callback: any,
+  element: typeof window | null | MediaQueryList = window
+) {
   const callbackRef = useRef(callback);
 
   useEffect(() => {

@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 export const Layout = styled.main`
   width: min(${({ theme }) => theme.sizes.lg}, 100% - 8px * 2);
-  padding: 72px 0 0 0;
+  // 64px is nav height
+  padding: calc(64px + 32px) 0 0 0;
   margin: 0 auto;
   position: relative;
-  min-height: 100vh;
+  // 64px is footer height
+  min-height: calc(100vh - 64px);
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -38,7 +40,7 @@ export const CardList = styled.div`
   justify-content: flex-start;
   padding-bottom: 32px;
 
-  @media (max-width: 720px) {
+  @media (max-width: ${({ theme }) => theme.sizes.lg}) {
     justify-content: center;
   }
 `;
@@ -53,6 +55,7 @@ export const NothingFoundContainer = styled.div`
   left: 50%;
   translate: -50% -50%;
   pointer-events: none;
+  width: 100%;
 `;
 
 export const NothingFoundHeader = styled.h2`

@@ -15,6 +15,7 @@ export const NavContainer = styled.div<any>`
     if (props.displayShadow)
       return `
       box-shadow: ${props.theme.shadows.standard};
+      height: 48px;
     `;
   }}
 `;
@@ -44,9 +45,11 @@ export const DarkMode = styled.div`
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
 
   :hover {
-    color: ${(props) => props.theme.colors.nav.hover};
+    outline: 1px solid ${(props) => props.theme.colors.nav.text};
   }
 `;
 

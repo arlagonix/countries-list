@@ -6,10 +6,15 @@ export const StyledCountryCard = styled.article`
   background-color: ${({ theme }) => theme.colors.countryCard.bg};
   border: 1px solid ${({ theme }) => theme.colors.countryCard.border};
   transition: 0.3s;
+  cursor: pointer;
 
-  &:has(div:nth-child(1):hover) {
+  :hover {
     scale: 1.025;
     box-shadow: ${({ theme }) => theme.shadows.standard};
+
+    h2 {
+      color: ${({ theme }) => theme.colors.countryCard.hover};
+    }
   }
 
   @media (max-width: 500px) {
@@ -24,10 +29,6 @@ export const HeaderContainer = styled.div`
   padding: 16px;
   cursor: pointer;
   transition: 0.3s;
-
-  :hover > h2 {
-    color: ${({ theme }) => theme.colors.countryCard.hover};
-  }
 `;
 
 export const Header = styled.h2`
