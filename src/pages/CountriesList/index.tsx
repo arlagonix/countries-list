@@ -1,4 +1,12 @@
-import { useState, useEffect, useMemo, useDeferredValue, useTransition } from "react";
+import Select from "../../components/Select";
+import useDebounce from "../../hooks/useDebounce";
+import SearchField from "../../components/SearchField";
+import { useQuery } from "@tanstack/react-query";
+import { regionsList } from "./index.dicts";
+import useLocalStorage from "../../hooks/useLocalStorage";
+import type { IOption } from "../../components/Select/index.types";
+import CountryCard, { SkeletonCountryCard } from "../../components/CountryCard";
+import { useState, useEffect, useTransition } from "react";
 import {
   Form,
   Layout,
@@ -7,14 +15,6 @@ import {
   NothingFoundHeader,
   NothingFoundCaption,
 } from "./index.styled";
-import CountryCard, { SkeletonCountryCard } from "../../components/CountryCard";
-import SearchField from "../../components/SearchField";
-import Select from "../../components/Select";
-import type { IOption } from "../../components/Select/index.types";
-import { useQuery } from "@tanstack/react-query";
-import useDebounce from "../../hooks/useDebounce";
-import { regionsList } from "./index.dicts";
-import useLocalStorage from "../../hooks/useLocalStorage";
 
 async function fetchListOfCountries(region: IOption | null, searchCountry: string) {
   const baseURL = "https://restcountries.com/v3.1/";

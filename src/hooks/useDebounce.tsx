@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import useTimeout from "./useTimeout";
 
+/** Helps to fire some action only after some time, timer resets when dependency changes */
 export default function useDebounce(
   /** Callback that must be fired after timeout */
   callback: () => any,

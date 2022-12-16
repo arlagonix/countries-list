@@ -1,10 +1,10 @@
-import { useState, useRef } from "react";
 import Svg from "../../global/Svg";
-import type { SelectProps, IOption } from "./index.types";
 import OutsideClickHandler from "react-outside-click-handler";
-import { EraseInput } from "./index.styled";
 import { useTheme } from "styled-components";
+import { EraseInput } from "./index.styled";
 import { CSSTransition } from "react-transition-group";
+import { useState, useRef } from "react";
+import type { SelectProps, IOption } from "./index.types";
 import "./styles.css";
 import {
   Label,

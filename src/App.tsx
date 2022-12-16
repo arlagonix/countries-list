@@ -1,17 +1,17 @@
-import { useEffect } from "react";
-import { ThemeProvider } from "styled-components";
+import Footer from "./components/Footer";
+import Navigation from "./components/Navigation";
 import GlobalStyle from "./global/GlobalStyle";
+import CountryPage from "./pages/CountryPage";
+import CountriesList from "./pages/CountriesList";
+import { useEffect } from "react";
+import useMediaQuery from "./hooks/useMediaQuery";
+import useLocalStorage from "./hooks/useLocalStorage";
+import { ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./global/Themes";
 import { HashRouter, Route, Routes } from "react-router-dom";
-import CountriesList from "./pages/CountriesList";
-import CountryPage from "./pages/CountryPage";
-import useLocalStorage from "./hooks/useLocalStorage";
-import useMediaQuery from "./hooks/useMediaQuery";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-const queryClient = new QueryClient();
 
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
+const queryClient = new QueryClient();
 
 function App({ hideLoader }: any) {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");

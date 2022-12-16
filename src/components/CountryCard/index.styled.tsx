@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const StyledCountryCard = styled.article`
-  width: 332px;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.countryCard.bg};
   border: 1px solid ${({ theme }) => theme.colors.countryCard.border};
@@ -15,10 +14,6 @@ export const StyledCountryCard = styled.article`
     h2 {
       color: ${({ theme }) => theme.colors.countryCard.hover};
     }
-  }
-
-  @media (max-width: 500px) {
-    flex-grow: 1;
   }
 `;
 

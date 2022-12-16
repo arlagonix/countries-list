@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef } from "react";
 
+/** Fires callback after timeout, allows to reset and clear the timeout */
 export default function useTimeout(
   /**Callback you want to launch after delay */
   callback: () => any,

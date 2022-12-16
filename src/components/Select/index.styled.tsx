@@ -3,13 +3,14 @@ import type { IOption } from "./index.types";
 import styled from "styled-components";
 
 interface SelectContainerProps {
+  /** True if list of options is displayed */
   isOptionsOpen: boolean;
 }
 
 export const SelectContainer = styled.div<SelectContainerProps>`
   position: relative;
 
-  // Move label up when select options are visible
+  // Moves label up when select options are visible
   ${(props) => {
     if (props.isOptionsOpen)
       return `
@@ -114,6 +115,7 @@ export const OptionsList = styled.ul`
   box-shadow: 0 0 4px rgb(0 0 0 / 0.25);
   background: ${({ theme }) => theme.colors.input.bg};
   margin-top: 8px;
+  border: 1px solid ${({ theme }) => theme.colors.input.border};
 
   // https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp
   ::-webkit-scrollbar {
@@ -139,6 +141,7 @@ export const ListOption = styled.li`
   :hover,
   [aria-selected="true"] {
     background: ${({ theme }) => theme.colors.input.focus};
+    color: ${({ theme }) => theme.colors.input.bg};
   }
 `;
 

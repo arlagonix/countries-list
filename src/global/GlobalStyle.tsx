@@ -25,6 +25,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.colors.pageBg};
     transition: .3s;
+
+    /* For some reason it doesn't work in Mozilla... */
+
     /* width */
     ::-webkit-scrollbar {
       width: 10px;

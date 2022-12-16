@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledSearchField = styled.div`
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
   position: relative;
   height: 64px;
   border: 1px solid ${({ theme }) => theme.colors.input.border};

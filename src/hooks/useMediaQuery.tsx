@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import useEventListener from "./useEventListener";
 
+/** Provides easy way to check if window satisfies media query */
 export default function useMediaQuery(mediaQuery: string) {
   const [isMatch, setIsMatch] = useState<boolean>(false);
   const [mediaQueryList, setMediaQueryList] = useState<MediaQueryList | null>(null);

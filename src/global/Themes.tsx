@@ -30,6 +30,7 @@ const sizes = {
   sizes: {
     lg: "1440px",
     md: "720px",
+    sm: "480px",
   },
 };
 
