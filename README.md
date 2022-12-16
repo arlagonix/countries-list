@@ -80,10 +80,6 @@ Figma prototype: https://www.figma.com/file/9TUVcloltVpCdi5LHVCiVT/Countries
     <td>Starts a local web server with HMR (Hot Module Replacement) for development</td>
   </tr>
   <tr>
-    <td><code>npm&nbsp;run&nbsp;build</code></td>
-    <td>Builds the project, and outputs to the folder <code>./build</code></td>
-  </tr>
-  <tr>
     <td><code>npm&nbsp;run&nbsp;preview</code></td>
     <td>Start a local web server that serves the built solution from <code>./build</code> for previewing</td>
   </tr>
