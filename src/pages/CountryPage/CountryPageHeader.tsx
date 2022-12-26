@@ -4,11 +4,32 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CountryInfoContext } from ".";
 import { Emoji, GoBack, Header, HeaderContainer } from "./index.styled";
+import displayData from "../../utils/displayData";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function CountryPageHeader() {
   const theme = useTheme();
   const navigate = useNavigate();
-  const { countryInfo, placeholder } = useContext(CountryInfoContext);
+  const { countryInfo, placeholder, isLoading } = useContext(CountryInfoContext);
+
+  const countryNameToDisplay = displayData(
+    countryInfo?.name?.common,
+    null,
+    !("name" in countryInfo && "common" in countryInfo.name),
+    placeholder,
+    isLoading,
+    <Skeleton width={200} />
+  );
+
+  const flagToDisplay = displayData(
+    countryInfo?.flag,
+    null,
+    !("flag" in countryInfo),
+    "",
+    isLoading,
+    <Skeleton width={48} />
+  );
 
   return (
     <HeaderContainer>
@@ -20,8 +41,8 @@ function CountryPageHeader() {
       >
         <Svg icon="arrowBack" width="48" height="48" fill={theme.colors.countryPage.header} />
       </GoBack>
-      <Header>{countryInfo.name?.common ?? placeholder}</Header>
-      <Emoji>{countryInfo.flag ?? ""}</Emoji>
+      <Header>{countryNameToDisplay}</Header>
+      <Emoji>{flagToDisplay}</Emoji>
     </HeaderContainer>
   );
 }

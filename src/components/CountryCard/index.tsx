@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { digitGroups } from "../../utils/digitGroups";
 import {
   HR,
-  Emoji,
   Header,
   Property,
+  StyledImage,
   PropertyName,
   PropertyValue,
   HeaderContainer,
@@ -33,6 +33,8 @@ interface CountryCardProps {
   languages: string;
   /** Country code, used for routing */
   countryCode: string;
+  /** SVG Flag URL */
+  flagURL: string;
 }
 
 function CountryCard({
@@ -43,6 +45,7 @@ function CountryCard({
   capital,
   languages,
   countryCode,
+  flagURL,
 }: CountryCardProps) {
   const theme = useTheme();
   const iconColor = theme.colors.countryCard.icon;
@@ -56,9 +59,15 @@ function CountryCard({
         window.scroll(0, 0);
       }}
     >
+      <StyledImage
+        src={flagURL}
+        referrerPolicy="no-referrer"
+        alt={`${countryName} flag`}
+        draggable="false"
+      />
+      <HR />
       <HeaderContainer>
         <Header>{countryName}</Header>
-        <Emoji>{flagEmoji}</Emoji>
       </HeaderContainer>
       <HR />
       <PropertiesContainer>
@@ -92,10 +101,9 @@ export function SkeletonCountryCard() {
   const iconColor = theme.colors.countryCard.icon;
   return (
     <StyledCountryCard>
+      <Skeleton width="100%" height="180px" borderRadius="0" />
+      <HR />
       <HeaderContainer>
-        <Emoji>
-          <Skeleton width={36} />
-        </Emoji>
         <Header>
           <Skeleton />
         </Header>

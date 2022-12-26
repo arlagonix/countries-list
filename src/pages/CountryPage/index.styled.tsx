@@ -90,6 +90,12 @@ export const SubHeader = styled.h3`
   }
 `;
 
+export const StyledParagraph = styled.p`
+  font-size: 16px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.countryPage.text};
+`;
+
 export const FlagImage = styled.img``;
 
 export const Table = styled.table`

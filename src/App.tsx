@@ -25,28 +25,12 @@ function App({ hideLoader }: any) {
       <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
         <HashRouter>
           <GlobalStyle />
+          <Navigation themeToggleHandler={themeToggler} isDarkMode={isDarkMode} />
           <Routes>
-            <Route
-              path="/*"
-              element={
-                <>
-                  <Navigation themeToggleHandler={themeToggler} />
-                  <CountriesList />
-                  <Footer />
-                </>
-              }
-            />
-            <Route
-              path="/:code"
-              element={
-                <>
-                  <Navigation themeToggleHandler={themeToggler} />
-                  <CountryPage />
-                  <Footer />
-                </>
-              }
-            />
+            <Route path="/*" element={<CountriesList />} />
+            <Route path="/:code" element={<CountryPage />} />
           </Routes>
+          <Footer />
         </HashRouter>
       </ThemeProvider>
     </QueryClientProvider>

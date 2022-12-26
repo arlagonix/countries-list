@@ -6,15 +6,23 @@ export const StyledCountryCard = styled.article`
   border: 1px solid ${({ theme }) => theme.colors.countryCard.border};
   transition: 0.3s;
   cursor: pointer;
+  overflow: hidden;
 
   :hover {
-    scale: 1.025;
+    /* scale: 1.025; */
     box-shadow: ${({ theme }) => theme.shadows.standard};
 
     h2 {
       color: ${({ theme }) => theme.colors.countryCard.hover};
     }
   }
+`;
+
+export const StyledImage = styled.img`
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
 `;
 
 export const HeaderContainer = styled.div`

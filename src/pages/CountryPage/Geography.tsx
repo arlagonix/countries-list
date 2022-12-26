@@ -3,15 +3,76 @@ import { useContext } from "react";
 import { digitGroups } from "../../utils/digitGroups";
 import { CountryInfoContext } from ".";
 import { ChipContainer, InfoBlock, SubHeader, Table } from "./index.styled";
+import displayData from "../../utils/displayData";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function Geography() {
-  const { countryInfo, placeholder } = useContext(CountryInfoContext);
-  const googleMapsURL =
-    "maps" in countryInfo && "googleMaps" in countryInfo.maps ? countryInfo.maps?.googleMaps : "#";
-  const openStreetMaps =
-    "maps" in countryInfo && "openStreetMaps" in countryInfo.maps
-      ? countryInfo.maps?.openStreetMaps
-      : "#";
+  const { countryInfo, placeholder, isLoading } = useContext(CountryInfoContext);
+
+  const continentsToDisplay = displayData(
+    countryInfo?.continents,
+    (continentsList) => continentsList.join(", "),
+    !("continents" in countryInfo),
+    placeholder,
+    isLoading,
+    <Skeleton width={80} />
+  );
+
+  const regionToDisplay = displayData(
+    countryInfo?.region,
+    null,
+    !("region" in countryInfo),
+    placeholder,
+    isLoading,
+    <Skeleton width={80} />
+  );
+
+  const subregionToDisplay = displayData(
+    countryInfo?.subregion,
+    null,
+    !("subregion" in countryInfo),
+    placeholder,
+    isLoading,
+    <Skeleton width={80} />
+  );
+
+  const areaToDisplay = displayData(
+    countryInfo?.area,
+    (areaValue) => `${digitGroups(areaValue)} km²`,
+    !("area" in countryInfo),
+    placeholder,
+    isLoading,
+    <Skeleton width={120} />
+  );
+
+  const landLockedToDisplay = displayData(
+    countryInfo?.landlocked,
+    (isLandLocked) => String(isLandLocked),
+    !("landlocked" in countryInfo),
+    placeholder,
+    isLoading,
+    <Skeleton width={40} />
+  );
+
+  const googleMapsToDisplay = displayData(
+    countryInfo?.maps?.googleMaps,
+    (googleMapsURL) => <Chip text="Google Maps" iconType="link" href={googleMapsURL} />,
+    !("maps" in countryInfo && "googleMaps" in countryInfo.maps),
+    "",
+    isLoading,
+    <Skeleton width={60} />
+  );
+
+  const streetMapsToDisplay = displayData(
+    countryInfo?.maps?.openStreetMaps,
+    (streetMapsURL) => <Chip text="Street Maps" iconType="link" href={streetMapsURL} />,
+    !("maps" in countryInfo && "openStreetMaps" in countryInfo.maps),
+    "",
+    isLoading,
+    <Skeleton width={60} />
+  );
+
   return (
     <InfoBlock>
       <SubHeader>Geography</SubHeader>
@@ -19,31 +80,36 @@ function Geography() {
         <tbody>
           <tr>
             <th>Continents</th>
-            <td>{"continents" in countryInfo ? countryInfo.continents.join(", ") : placeholder}</td>
+            <td>{continentsToDisplay}</td>
           </tr>
           <tr>
             <th>Region</th>
-            <td>{"region" in countryInfo ? countryInfo.region : placeholder}</td>
+            <td>{regionToDisplay}</td>
           </tr>
           <tr>
             <th>Sub region</th>
-            <td>{"subregion" in countryInfo ? countryInfo.subregion : placeholder}</td>
+            <td>{subregionToDisplay}</td>
           </tr>
           <tr>
             <th>Area</th>
-            <td>{"area" in countryInfo ? digitGroups(countryInfo.area) : placeholder} km²</td>
+            <td>{areaToDisplay}</td>
           </tr>
           <tr>
             <th>Landlocked</th>
-            <td>{"landlocked" in countryInfo ? String(countryInfo.landlocked) : placeholder}</td>
+            <td>{landLockedToDisplay}</td>
           </tr>
-
           <tr>
             <th>Maps</th>
             <td>
               <ChipContainer>
-                <Chip text="Google Maps" iconType="link" href={googleMapsURL} />
-                <Chip text="Street Maps" iconType="link" href={openStreetMaps} />
+                {googleMapsToDisplay !== "" && streetMapsToDisplay !== "" ? (
+                  <>
+                    {googleMapsToDisplay}
+                    {streetMapsToDisplay}
+                  </>
+                ) : (
+                  placeholder
+                )}
               </ChipContainer>
             </td>
           </tr>

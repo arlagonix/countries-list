@@ -25,28 +25,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.colors.pageBg};
     transition: .3s;
-
-    /* For some reason it doesn't work in Mozilla... */
-
-    /* width */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    /* Track */
-    ::-webkit-scrollbar-track {
-      background: #EDECE9;
-    }
-
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: #D3D1CB;
-    }
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background: #AEACA6;
-    }
   }
 `;
 

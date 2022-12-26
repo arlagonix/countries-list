@@ -8,12 +8,16 @@ import { NavContainer, Nav, DarkMode, Header, DarkModeText } from "./index.style
 interface NavigationProps {
   /** Function that toggles dark mode on and off */
   themeToggleHandler: () => void;
+  /** True if it's dark mode */
+  isDarkMode: boolean;
 }
 
-function Navigation({ themeToggleHandler }: NavigationProps) {
+function Navigation({ themeToggleHandler, isDarkMode }: NavigationProps) {
   const theme = useTheme();
   const [isScrolledY, setIsScrolled] = useState(false);
   const navigate = useNavigate();
+  const currentModeText = isDarkMode ? "Light" : "Dark";
+  const currentModeIcon = isDarkMode ? "light" : "moonStroked";
 
   useEventListener("scroll", () => {
     setIsScrolled(window.scrollY > 10);
@@ -24,8 +28,8 @@ function Navigation({ themeToggleHandler }: NavigationProps) {
       <Nav>
         <Header onClick={() => navigate("/")}>Where is the world?</Header>
         <DarkMode onClick={themeToggleHandler}>
-          <Svg icon="moonStroked" width="24" height="24" fill={theme.colors.nav.text} />
-          <DarkModeText>Dark Mode</DarkModeText>
+          <Svg icon={currentModeIcon} width="24" height="24" fill={theme.colors.nav.text} />
+          <DarkModeText>{currentModeText} Mode</DarkModeText>
         </DarkMode>
       </Nav>
     </NavContainer>

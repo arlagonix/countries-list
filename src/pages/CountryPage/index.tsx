@@ -48,7 +48,7 @@ function CountryPage() {
   return (
     <Layout>
       {!isError && !isPaused && data?.length !== 0 ? (
-        <CountryInfoContext.Provider value={{ countryInfo, placeholder }}>
+        <CountryInfoContext.Provider value={{ countryInfo, placeholder, isLoading }}>
           <CountryPageHeader />
           <GeneralInformation userQueries={userQueries} />
           <Geography />

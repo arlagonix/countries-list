@@ -6,7 +6,6 @@
   "homepage": "https://arlagonix.github.io/countries-list",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
     "preview": "vite preview",
     "predeploy": "tsc && vite build build",
     "deploy": "gh-pages -d build"

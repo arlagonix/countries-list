@@ -21,6 +21,10 @@ export const SelectContainer = styled.div<SelectContainerProps>`
       }
     `;
   }}
+
+  button:focus ~ p {
+    color: ${({ theme }) => theme.colors.input.focus};
+  }
 `;
 
 interface SelectFieldrProps {
@@ -50,12 +54,12 @@ export const SelectField = styled.button<SelectFieldrProps>`
     cursor: pointer;
   }
 
-  ${(props) => {
+  /* ${(props) => {
     if (props.selectValue !== null)
       return `
         border-color: ${props.theme.colors.input.focus}};
     `;
-  }}
+  }} */
 `;
 
 interface LabelProps {
@@ -74,7 +78,6 @@ export const Label = styled.p<LabelProps>`
   ${(props) => {
     if (props.selectValue !== null)
       return `
-        color: ${props.theme.colors.input.focus}};
         translate: 0 0;
         top: 6px;
     `;

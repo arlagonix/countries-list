@@ -78,6 +78,7 @@ function CountriesList() {
             capital={item.capital?.join(", ") ?? "-"}
             languages={Object.values(item.languages ?? {}).join(", ") ?? "-"}
             countryCode={item.cca3}
+            flagURL={item.flags.svg}
           />
         ))
       );
