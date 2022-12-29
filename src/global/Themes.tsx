@@ -77,6 +77,10 @@ export const lightTheme = {
       text: colors.blueOne,
       bg: colors.lightBlueOne,
     },
+    skeleton: {
+      baseColor: "#ebebeb",
+      highlightColor: "#f5f5f5",
+    },
   },
   shadows: {
     standard: "0px 0px 16px rgba(0, 0, 0, 0.1)",
@@ -125,6 +129,10 @@ export const darkTheme = {
     chip: {
       text: colors.blueTwo,
       bg: colors.lightBlueTwo,
+    },
+    skeleton: {
+      baseColor: colors.blackThree,
+      highlightColor: colors.blackTwo,
     },
   },
   shadows: {

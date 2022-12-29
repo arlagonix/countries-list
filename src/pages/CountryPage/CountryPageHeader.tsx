@@ -1,7 +1,7 @@
 import Svg from "../../global/Svg";
 import { useTheme } from "styled-components";
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { CountryInfoContext } from ".";
 import { Emoji, GoBack, Header, HeaderContainer } from "./index.styled";
 import displayData from "../../utils/displayData";
@@ -11,6 +11,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 function CountryPageHeader() {
   const theme = useTheme();
   const navigate = useNavigate();
+  const location = useLocation();
   const { countryInfo, placeholder, isLoading } = useContext(CountryInfoContext);
 
   const countryNameToDisplay = displayData(
@@ -31,11 +32,15 @@ function CountryPageHeader() {
     <Skeleton width={48} />
   );
 
+  console.log(location.key);
+
   return (
     <HeaderContainer>
       <GoBack
+        data-test="go-back"
         onClick={() => {
-          navigate(-1);
+          if (location.key !== "default") navigate(-1);
+          else navigate("/");
           window.scroll(0, 0);
         }}
       >

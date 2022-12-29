@@ -27,7 +27,7 @@ function Navigation({ themeToggleHandler, isDarkMode }: NavigationProps) {
     <NavContainer displayShadow={isScrolledY}>
       <Nav>
         <Header onClick={() => navigate("/")}>Where is the world?</Header>
-        <DarkMode onClick={themeToggleHandler}>
+        <DarkMode data-test="theme-toggler" onClick={themeToggleHandler}>
           <Svg icon={currentModeIcon} width="24" height="24" fill={theme.colors.nav.text} />
           <DarkModeText>{currentModeText} Mode</DarkModeText>
         </DarkMode>

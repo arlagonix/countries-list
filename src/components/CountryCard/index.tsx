@@ -19,8 +19,6 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 interface CountryCardProps {
-  /** Emoji of the country flag */
-  flagEmoji: string;
   /** Common name of the country */
   countryName: string;
   /** Number of people living in the country */
@@ -38,7 +36,6 @@ interface CountryCardProps {
 }
 
 function CountryCard({
-  flagEmoji,
   countryName,
   population,
   region,
@@ -67,7 +64,7 @@ function CountryCard({
       />
       <HR />
       <HeaderContainer>
-        <Header>{countryName}</Header>
+        <Header data-test="country-card-header">{countryName}</Header>
       </HeaderContainer>
       <HR />
       <PropertiesContainer>

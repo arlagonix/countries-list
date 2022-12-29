@@ -15,10 +15,15 @@ function SearchField({ label, inputValue, changeHandler }: SearchFieldProps) {
   const theme = useTheme();
   return (
     <StyledSearchField>
-      <Content type="text" value={inputValue} onChange={(e) => changeHandler(e.target.value)} />
+      <Content
+        data-test="search-field"
+        type="text"
+        value={inputValue}
+        onChange={(e) => changeHandler(e.target.value)}
+      />
       <Label>{label}</Label>
       {inputValue.length !== 0 && (
-        <EraseInput onClick={() => changeHandler("")}>
+        <EraseInput data-test="clear-search-field" onClick={() => changeHandler("")}>
           <Svg icon="cross" width="18" height="18" fill={theme.colors.input.icon} />
         </EraseInput>
       )}

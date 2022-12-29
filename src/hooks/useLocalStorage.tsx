@@ -23,6 +23,7 @@ export default function useLocalStorage<T>(
   const [value, setValue] = useState(() => getSavedValue(key, initialValue));
   useEffect(() => {
     localStorage.setItem(key, JSON.stringify(value));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
   return [value, setValue];
 }

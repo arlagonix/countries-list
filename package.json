@@ -6,9 +6,12 @@
   "homepage": "https://arlagonix.github.io/countries-list",
   "scripts": {
     "dev": "vite",
+    "build": "tsc && vite build",
     "preview": "vite preview",
-    "predeploy": "tsc && vite build build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "tsc && vite build",
+    "deploy": "gh-pages -d build",
+    "test": "cypress open",
+    "lint": "eslint --max-warnings=0 src"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.19.1",
@@ -30,6 +33,9 @@
     "@types/react-transition-group": "^4.4.5",
     "@types/styled-components": "^5.1.26",
     "@vitejs/plugin-react": "^2.2.0",
+    "cypress": "^12.2.0",
+    "eslint": "^8.0.0",
+    "eslint-config-react-app": "^7.0.1",
     "gh-pages": "^4.0.0",
     "typescript": "^4.6.4",
     "vite": "^3.2.3",

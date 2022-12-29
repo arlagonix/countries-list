@@ -15,5 +15,7 @@ export default function useDebounce(
 
   // We want to clear out function the very first time
   // Thus it won't lauch the callback on the first iteration because it's not needed
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(clear, []);
 }

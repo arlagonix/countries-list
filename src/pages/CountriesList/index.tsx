@@ -58,6 +58,7 @@ function CountriesList() {
 
   useEffect(() => {
     refetch();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [region]);
 
   useDebounce(() => refetch(), 300, [searchCountry]);
@@ -71,7 +72,6 @@ function CountriesList() {
         data.map((item: any) => (
           <CountryCard
             key={item.cca3}
-            flagEmoji={item.flag}
             countryName={item.name.common}
             population={item.population}
             region={item.region}
@@ -102,7 +102,7 @@ function CountriesList() {
       </Form>
       <CardList>{isPending || isLoading ? SkeletonCountryCardList : displayedData}</CardList>
       {!isPending && data !== undefined && data.length === 0 && (
-        <NothingFoundContainer>
+        <NothingFoundContainer data-test="nothing-found">
           <NothingFoundHeader>No Results</NothingFoundHeader>
           <NothingFoundCaption>Try to change search parameters</NothingFoundCaption>
         </NothingFoundContainer>

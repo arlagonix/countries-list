@@ -40,10 +40,19 @@ const Select = ({ label, optionsList, value, changeHandler }: SelectProps) => {
       }}
     >
       <SelectContainer isOptionsOpen={isOptionsOpen} style={{ position: "relative" }}>
-        <SelectField selectValue={value} type="button" onClick={toggleOptions} ref={selectRef}>
-          <SelectText selectValue={value}>{value === null ? "" : value.textDisplayed}</SelectText>{" "}
+        <SelectField
+          data-test="select-region"
+          selectValue={value}
+          type="button"
+          onClick={toggleOptions}
+          ref={selectRef}
+        >
+          <SelectText data-test="selected-value" selectValue={value}>
+            {value === null ? "" : value.textDisplayed}
+          </SelectText>{" "}
           {value !== null && (
             <EraseInput
+              data-test="clear-select-region"
               onClick={(e) => {
                 changeHandler(null);
                 e.stopPropagation();
@@ -66,7 +75,7 @@ const Select = ({ label, optionsList, value, changeHandler }: SelectProps) => {
           classNames="options-list"
           unmountOnExit
         >
-          <OptionsList ref={nodeRef} tabIndex={-1}>
+          <OptionsList data-test="select-region-options" ref={nodeRef} tabIndex={-1}>
             {optionsList.map((option: IOption) => (
               <ListOption
                 key={option.id}

@@ -17,7 +17,7 @@ interface ChipProps {
 function Chip({ text, iconType, href, clickHandler }: ChipProps) {
   const theme = useTheme();
   const chipContent = (
-    <StyledChip onClick={clickHandler}>
+    <StyledChip data-test="chip" onClick={clickHandler}>
       <p>{text}</p>
       {iconType !== undefined && (
         <Svg icon={iconType} width="16" height="16" fill={theme.colors.chip.text} />
