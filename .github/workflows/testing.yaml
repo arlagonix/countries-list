@@ -1,7 +1,7 @@
 name: Deploy React App
 on: push
 jobs:
-  lint:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Get repository code
@@ -10,5 +10,10 @@ jobs:
         run: npm ci
       - name: Lint application
         run: npm run lint
-      - name: Deploy
-        run: npm run deploy
+      - name: Build application
+        run: npm run build
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
+          branch: gh-pages
