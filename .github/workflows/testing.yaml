@@ -45,8 +45,8 @@ jobs:
 
       - name: Get repository code
         uses: actions/checkout@v3
-      # - name: Install dependecies
-      #   run: npm ci
+      - name: Install dependecies
+        run: npm ci
       - name: Build application
         run: npm run build
       - name: Deploy to GitHub Pages
