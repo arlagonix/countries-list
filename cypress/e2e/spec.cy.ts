@@ -3,7 +3,7 @@ const sizes = [[1920, 1080]];
 
 const waitOnURL = "http://localhost:5173";
 
-describe("List of countries", () => {
+describe.only("List of countries", () => {
   beforeEach(() => {
     cy.visit(waitOnURL);
     cy.intercept("GET", "https://restcountries.com/v3.1/all").as("getCountries");
@@ -11,7 +11,7 @@ describe("List of countries", () => {
 
   sizes.forEach((size) => {
     context(`${size} screen`, () => {
-      it("Changes the theme", () => {
+      it.only("Changes the theme", () => {
         cy.setSize(size);
         cy.getByData("theme-toggler").click();
         cy.getByData("theme-toggler").click();

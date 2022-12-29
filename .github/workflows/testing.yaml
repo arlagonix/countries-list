@@ -14,11 +14,18 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           install: false
-          start: npm run dev
+          build: npm run build
           wait-on: "http://localhost:5173"
           wait-on-timeout: 120
           browser: chrome
           spec: cypress/e2e/spec.cy.ts
+      # - name: Build application
+      #   run: npm run build
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
+          branch: gh-pages
 
   # install_and_lint:
   #   runs-on: ubuntu-latest
