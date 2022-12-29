@@ -19,8 +19,8 @@ jobs:
           wait-on-timeout: 120
           browser: chrome
           spec: cypress/e2e/spec.cy.ts
-      # - name: Build application
-      #   run: npm run build
+      - name: Build application
+        run: npm run build
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
