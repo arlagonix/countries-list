@@ -38,9 +38,8 @@ jobs:
           wait-on-timeout: 120
           spec: cypress/e2e/spec.cy.ts
           parallel: true
-          group: 'UI - Chrome'
-          wait-on: 'http://localhost:5173'
-          parallel: true
+          group: "UI - Chrome"
+          wait-on: "http://localhost:5173"
 
   deploy:
     runs-on: ubuntu-latest
