@@ -1,8 +1,11 @@
-const sizes = [[1920, 1080], [1366, 768], "iphone-se2"];
+// const sizes = [[1920, 1080], [1366, 768], "iphone-se2"];
+const sizes = [[1920, 1080]];
+
+const waitOnURL = "http://localhost:5173";
 
 describe("List of countries", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:5173/");
+    cy.visit(waitOnURL);
     cy.intercept("GET", "https://restcountries.com/v3.1/all").as("getCountries");
   });
 
@@ -84,7 +87,7 @@ describe("List of countries", () => {
 
 describe("Country Page", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:5173/#/USA");
+    cy.visit(`${waitOnURL}/#/USA`);
     cy.intercept("GET", "https://restcountries.com/v3.1/alpha/USA").as("getCountry");
   });
 
@@ -109,7 +112,7 @@ describe("Country Page", () => {
       });
 
       it("Safely returns back to the list when we open country page from URL", () => {
-        cy.visit("http://localhost:5173/#/USA");
+        cy.visit(`${waitOnURL}/#/USA`);
         cy.getByData("go-back").click();
         cy.url().should("include", "/");
       });
