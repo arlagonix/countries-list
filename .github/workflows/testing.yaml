@@ -1,3 +1,5 @@
+# https://github.com/marketplace/actions/cypress-io
+# https://github.com/marketplace/actions/deploy-to-github-pages
 name: Deploy React App
 on: push
 jobs:
@@ -10,6 +12,11 @@ jobs:
         run: npm ci
       - name: Lint application
         run: npm run lint
+      - name: E2E test on Chrome
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome
+          spec: cypress/e2e/spec.cy.ts
       - name: Build application
         run: npm run build
       - name: Deploy to GitHub Pages
