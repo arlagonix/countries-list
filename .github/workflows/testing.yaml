@@ -3,36 +3,31 @@
 name: Deploy React App
 on: push
 jobs:
-  install:
+  install_and_lint:
     runs-on: ubuntu-latest
     steps:
       - name: Get repository code
         uses: actions/checkout@v3
       - name: Install dependecies
         run: npm ci
-
-  lint:
-    runs-on: ubuntu-latest
-    needs: install
-    steps:
       - name: Lint application
         run: npm run lint
 
-  test:
-    runs-on: ubuntu-latest
-    needs: lint
-    steps:
-      - name: test
-        run: echo test
-    # strategy:
-    #   fail-fast: false
-    #   matrix:
-    #     # run copies of the current job in parallel
-    #     containers: [1, 2, 3, 4, 5]
+  # test:
+  #   runs-on: ubuntu-latest
+  #   needs: lint
+  #   steps:
+  #     - name: test
+  #       run: echo test
+  # strategy:
+  #   fail-fast: false
+  #   matrix:
+  #     # run copies of the current job in parallel
+  #     containers: [1, 2, 3, 4, 5]
 
   deploy:
     runs-on: ubuntu-latest
-    needs: test
+    needs: install_and_lint
     steps:
       # - name: E2E test on Chrome
       #   uses: cypress-io/github-action@v5
@@ -48,9 +43,12 @@ jobs:
       #     wait-on: 'http://localhost:5173'
       #     parallel: true
 
+      - name: Get repository code
+        uses: actions/checkout@v3
+      # - name: Install dependecies
+      #   run: npm ci
       - name: Build application
         run: npm run build
-
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
