@@ -3,19 +3,19 @@
 name: Deploy React App
 on: push
 jobs:
-  install_and_lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get repository code
-        uses: actions/checkout@v3
-      - name: Install dependecies
-        run: npm ci
-      - name: Lint application
-        run: npm run lint
+  # install_and_lint:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Get repository code
+  #       uses: actions/checkout@v3
+  #     - name: Install dependecies
+  #       run: npm ci
+  #     - name: Lint application
+  #       run: npm run lint
 
   test:
     runs-on: ubuntu-latest
-    needs: install_and_lint
+    # needs: install_and_lint
     strategy:
       # when one test fails, DO NOT cancel the other
       # containers, because this will kill Cypress processes
@@ -23,7 +23,7 @@ jobs:
       # https://github.com/cypress-io/github-action/issues/48
       fail-fast: false
       matrix:
-        # run 3 copies of the current job in parallel
+        # run 5 copies of the current job in parallel
         containers: [1, 2, 3, 4, 5]
     steps:
       - name: Checkout
@@ -42,6 +42,7 @@ jobs:
           parallel: true
           group: "UI - Chrome"
           wait-on: "http://localhost:5173"
+          record: false
 
   deploy:
     runs-on: ubuntu-latest
