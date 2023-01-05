@@ -10,7 +10,9 @@ jobs:
         uses: actions/checkout@v3
       - name: Install dependecies
         run: npm ci
-      - name: E2E test on Chrome
+      - name: Run unit tests
+        run: npm run text:unit
+      - name: Run E2E tests on Chrome
         uses: cypress-io/github-action@v5
         with:
           install: false
