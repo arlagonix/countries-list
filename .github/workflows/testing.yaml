@@ -11,7 +11,7 @@ jobs:
       - name: Install dependecies
         run: npm ci
       - name: Run unit tests
-        run: npm run text:unit
+        run: npm run test:unit
       - name: Run E2E tests on Chrome
         uses: cypress-io/github-action@v5
         with:
