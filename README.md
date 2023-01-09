@@ -64,6 +64,8 @@ Figma prototype: https://www.figma.com/file/9TUVcloltVpCdi5LHVCiVT/Countries
   - ReactJS
   - React Query
   - React Router
+  - Vitest
+  - Cypress
 - **NodeJS**
 - **Vite**
 - **Github Pages**
