@@ -11,61 +11,61 @@ on:
       - "docs/*"
   workflow_dispatch:
 jobs:
-  # lint:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Get repository code
-  #       uses: actions/checkout@v3
-  #     - name: Cache dependecies
-  #       uses: actions/cache@v3
-  #       with:
-  #         path: ~/.npm
-  #         key: node-modules-${{ hashFiles('**/package-lock.json') }}
-  #     - name: Install dependecies
-  #       run: npm ci
-  #     - name: Lint application
-  #       run: npm run lint
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Cache dependecies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependecies
+        run: npm ci
+      - name: Lint application
+        run: npm run lint
 
-  # unit-test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Get repository code
-  #       uses: actions/checkout@v3
-  #     - name: Cache dependecies
-  #       uses: actions/cache@v3
-  #       with:
-  #         path: ~/.npm
-  #         key: node-modules-${{ hashFiles('**/package-lock.json') }}
-  #     - name: Install dependecies
-  #       run: npm ci
-  #     - name: Run unit tests
-  #       run: npm run test:unit
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Cache dependecies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependecies
+        run: npm ci
+      - name: Run unit tests
+        run: npm run test:unit
 
-  # e2e-test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Get repository code
-  #       uses: actions/checkout@v3
-  #     - name: Cache dependecies
-  #       uses: actions/cache@v3
-  #       with:
-  #         path: ~/.npm
-  #         key: node-modules-${{ hashFiles('**/package-lock.json') }}
-  #     - name: Install dependecies
-  #       run: npm ci
-  #     - name: Run E2E tests on Chrome
-  #       uses: cypress-io/github-action@v5
-  #       with:
-  #         install: false
-  #         start: npm run dev
-  #         wait-on: "http://localhost:5173"
-  #         wait-on-timeout: 120
-  #         browser: chrome
-  #         spec: cypress/e2e/spec.cy.ts
+  e2e-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Cache dependecies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Install dependecies
+        run: npm ci
+      - name: Run E2E tests on Chrome
+        uses: cypress-io/github-action@v5
+        with:
+          install: false
+          start: npm run dev
+          wait-on: "http://localhost:5173"
+          wait-on-timeout: 120
+          browser: chrome
+          spec: cypress/e2e/spec.cy.ts
 
   build:
     runs-on: ubuntu-latest
-    # needs: [lint, unit-test, e2e-test]
+    needs: [lint, unit-test, e2e-test]
     steps:
       - name: Get repository code
         uses: actions/checkout@v3
@@ -96,101 +96,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
-# name: Deploy React App
-# on:
-#   push:
-#     branches:
-#       - main
-#     pathes-ignore:
-#       - ".github/workflows/*"
-#       - "README.md"
-#       - "docs/*"
-#   workflow_dispatch:
-# jobs:
-#   cypress:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v3
-#       - name: Cache dependecies
-#         uses: actions/cache@v3
-#         with:
-#           path: ~/.npm
-#           key: node-modules-${{ hashFiles('**/package-lock.json') }}
-#       - name: Install dependecies
-#         run: npm ci
-#       - name: Run unit tests
-#         run: npm run test:unit
-#       - name: Run E2E tests on Chrome
-#         uses: cypress-io/github-action@v5
-#         with:
-#           install: false
-#           start: npm run dev
-#           wait-on: "http://localhost:5173"
-#           wait-on-timeout: 120
-#           browser: chrome
-#           spec: cypress/e2e/spec.cy.ts
-#       - name: Build application
-#         run: npm run build
-#       - name: Deploy to GitHub Pages
-#         uses: JamesIves/github-pages-deploy-action@v4
-#         with:
-#           folder: build
-#           branch: gh-pages
-
-# install_and_lint:
-#   runs-on: ubuntu-latest
-#   steps:
-#     - name: Get repository code
-#       uses: actions/checkout@v3
-#     - name: Install dependecies
-#       run: npm ci
-#     - name: Lint application
-#       run: npm run lint
-
-# test:
-#   runs-on: ubuntu-latest
-#   # needs: install_and_lint
-#   strategy:
-#     # when one test fails, DO NOT cancel the other
-#     # containers, because this will kill Cypress processes
-#     # leaving Cypress Cloud hanging ...
-#     # https://github.com/cypress-io/github-action/issues/48
-#     fail-fast: false
-#     matrix:
-#       # run 5 copies of the current job in parallel
-#       containers: [1, 2, 3, 4, 5]
-#   steps:
-#     - name: Checkout
-#       uses: actions/checkout@v3
-#     - name: Install dependecies
-#       run: npm ci
-#     - name: E2E test on Chrome
-#       uses: cypress-io/github-action@v5
-#       with:
-#         # we have already installed all dependencies above
-#         install: false
-#         start: npm run dev
-#         wait-on: "http://localhost:5173"
-#         wait-on-timeout: 120
-#         browser: chrome
-#         record: true
-#         parallel: true
-#         group: "UI - Chrome"
-#         spec: cypress/e2e/spec.cy.ts
-
-# deploy:
-#   runs-on: ubuntu-latest
-#   needs: test
-#   steps:
-#     - name: Get repository code
-#       uses: actions/checkout@v3
-#     - name: Install dependecies
-#       run: npm ci
-#     - name: Build application
-#       run: npm run build
-#     - name: Deploy to GitHub Pages
-#       uses: JamesIves/github-pages-deploy-action@v4
-#       with:
-#         folder: build
-#         branch: gh-pages
