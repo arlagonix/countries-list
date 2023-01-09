@@ -63,7 +63,7 @@ jobs:
           browser: chrome
           spec: cypress/e2e/spec.cy.ts
 
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     needs: [lint, unit-test, e2e-test]
     steps:
@@ -78,10 +78,24 @@ jobs:
         run: npm ci
       - name: Build application
         run: npm run build
+      - name: Upload build for further deployment
+        uses: actions/upload-artifact@v3
+        with:
+          path: build
+          name: build-files
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Get build files
+        uses: actions/download-artifact@v3
+        with:
+          name: build-files
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build
+          folder: build-files
           branch: gh-pages
 # name: Deploy React App
 # on:
