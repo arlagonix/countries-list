@@ -92,12 +92,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build-files
-      - name: test
-        run: ls
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build
+          folder: /home/runner/work/countries-list/countries-list
           branch: gh-pages
 # name: Deploy React App
 # on:
