@@ -9,6 +9,7 @@ on:
       - ".github/workflows/*"
       - "**.md"
       - "docs/**"
+      - "LICENSE"
   workflow_dispatch:
 jobs:
   lint:
