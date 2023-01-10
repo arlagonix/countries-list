@@ -7,8 +7,8 @@ on:
       - main
     pathes-ignore:
       - ".github/workflows/*"
-      - "README.md"
-      - "docs/*"
+      - "*.md"
+      - "docs/**"
   workflow_dispatch:
 jobs:
   lint:
