@@ -5,9 +5,10 @@ on:
   push:
     branches:
       - main
-    pathes-ignore:
-      - "**.md"
-      - "./docs/**"
+    pathes:
+      - "**"
+      - "!**.md"
+      - "!docs/**"
   workflow_dispatch:
 jobs:
   lint:
