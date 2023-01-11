@@ -33,7 +33,7 @@
     "@types/react-transition-group": "^4.4.5",
     "@types/styled-components": "^5.1.26",
     "@vitejs/plugin-react": "^2.2.0",
-    "@vitest/coverage-c8": "^0.26.3",
+    "@vitest/coverage-c8": "^0.27.0",
     "cypress": "^12.2.0",
     "eslint": "^8.0.0",
     "eslint-config-react-app": "^7.0.1",
