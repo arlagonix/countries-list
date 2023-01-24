@@ -86,14 +86,11 @@ describe("List of countries", () => {
 });
 
 describe("Country Page", () => {
-  beforeEach(() => {
-    cy.visit(`${waitOnURL}/#/USA`);
-    cy.intercept("GET", "https://restcountries.com/v3.1/alpha/USA").as("getCountry");
-  });
-
   sizes.forEach((size) => {
     context(`${size} screen`, () => {
       it("Opens pages of border countries and returns back", () => {
+        cy.visit(`${waitOnURL}/#/USA`);
+        cy.intercept("GET", "https://restcountries.com/v3.1/alpha/USA").as("getCountry");
         cy.intercept("GET", "https://restcountries.com/v3.1/alpha/MEX").as("getMexico");
         cy.intercept("GET", "https://restcountries.com/v3.1/alpha/GTM").as("getGuatemala");
         cy.intercept("GET", "https://restcountries.com/v3.1/alpha/HND").as("getHonduras");
@@ -113,6 +110,7 @@ describe("Country Page", () => {
 
       it("Safely returns back to the list when we open country page from URL", () => {
         cy.visit(`${waitOnURL}/#/USA`);
+        cy.intercept("GET", "https://restcountries.com/v3.1/alpha/USA").as("getCountry");
         cy.getByData("go-back").click();
         cy.url().should("include", "/");
       });
@@ -121,7 +119,7 @@ describe("Country Page", () => {
         cy.intercept("GET", "https://restcountries.com/v3.1/alpha/NotExistingCountry").as(
           "getNotExistingCountry"
         );
-        cy.visit("http://localhost:5173/#/NotExistingCountry");
+        cy.visit(`${waitOnURL}/#/NotExistingCountry`);
         cy.wait("@getNotExistingCountry");
         cy.getByData("country-not-found").should("be.visible");
       });
