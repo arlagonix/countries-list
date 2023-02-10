@@ -210,7 +210,7 @@ Figma prototype: https://www.figma.com/file/9TUVcloltVpCdi5LHVCiVT/Countries
   </tr>
   <tr>
     <td><code>@tanstack/react-query</code>, <br><code>@tanstack/react-query-devtools</code></td>
-    <td></td>
+    <td>API requests</td>
   </tr>
   <tr>
     <td><code>cypress</code></td>
