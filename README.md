@@ -160,9 +160,9 @@ Figma prototype: https://www.figma.com/file/9TUVcloltVpCdi5LHVCiVT/Countries
 │   └── 📝 vite-end.d.ts              Some Typescript stuff for Vite
 │
 ├── 📁 .github
-│   ├── 📝 dependabot.yml     Instructions for Dependabot
-|   └── 📁 workflows
-|       └── 📝 main.yaml      CI/CD instructions for Github Actions
+|   ├── 📁 workflows
+|   |   └── 📝 main.yaml      CI/CD instructions for Github Actions
+│   └── 📝 dependabot.yml     Instructions for Dependabot
 |
 ├── 📁 docs                   Additional information, documentation 
 │   └── 📁 results            Screenshots of how the application works after being fully developed
