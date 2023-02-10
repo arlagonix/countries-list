@@ -1,10 +1,36 @@
 <h1 align="center">Where is the world</h1>
 <p align="center">
   Made with <code>HTML</code>, <code>CSS</code>, <code>TypeScript</code>, <code>ReactJS</code>, <code>styled-components</code>
-</p>
-<p align="center">
+  <br>
   Bootstrapped with <code>Vite</code>
 </p>
+
+<p align="center">
+  <a href="../../actions"><img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/arlagonix/countries-list/main.yaml"></a>
+  <a href="../../commits"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/arlagonix/countries-list"></a>
+  <a href="./LICENSE"><img alt="GitHub" src="https://img.shields.io/github/license/arlagonix/countries-list"></a>
+  <img src="https://badgen.net/github/dependabot/arlagonix/countries-list" />
+  <img src="https://img.shields.io/github/repo-size/arlagonix/countries-list" />
+</p>
+
+<p align="center">
+  <a href="#-screenshots">🖼 Screenshots</a> • 
+  <a href="#ℹ%EF%B8%8F-about">ℹ️ About</a> • 
+  <a href="#%EF%B8%8F-tools">⚙️ Tools</a> • 
+  <a href="#-build-project">🔨 How to Build Project</a> • 
+  <a href="#-file-structure">📁 File Structure</a>
+</p>
+
+<sup>
+  <p align="center">
+    <a href="#-npm-packages-worth-mentioning">📦 NPM Packages worth mentioning</a> • 
+    <a href="#-details">💡 Details</a> • 
+    <a href="#-useful-resources">🔗 Useful resources</a> • 
+    <a href="#-author">👤 Author</a>
+  </p>
+</sup>
+
+## 🖼 Screenshots
 
 <p align="center">
   <img src="./docs/results/list_big_light.png" width="100%">
@@ -79,6 +105,10 @@ Figma prototype: https://www.figma.com/file/9TUVcloltVpCdi5LHVCiVT/Countries
     <th>Description</th>
   </tr>
   <tr>
+    <td><code>npm&nbsp;install</code></td>
+    <td>First of all install all required packages</td>
+  </tr>
+  <tr>
     <td><code>npm&nbsp;run&nbsp;dev</code></td>
     <td>Starts a local web server with HMR (Hot Module Replacement) for development</td>
   </tr>
@@ -106,136 +136,91 @@ Figma prototype: https://www.figma.com/file/9TUVcloltVpCdi5LHVCiVT/Countries
 
 ## 📁 File Structure
 
-<table>
-  <tr>
-    <th>Path</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td colspan="2"></td>
-  </tr>
-  <tr>
-    <td><code>src</code></td>
-    <td>Source files needed for application development</td>
-  </tr>
-  <tr>
-    <td><code>src / assets</code></td>
-    <td>Folder with static assets (images, favicon)</td>
-  </tr>
-  <tr>
-    <td><code>src / components</code></td>
-    <td>Folder with React components</td>
-  </tr>
-  <tr>
-    <td><code>src / global</code></td>
-    <td>Folder with global styles and parameters</td>
-  </tr>
-  <tr>
-    <td><code>src / hooks</code></td>
-    <td>Folder with custom hooks</td>
-  </tr>
-  <tr>
-    <td><code>src / pages</code></td>
-    <td>Folder with pages</td>
-  </tr>
-  <tr>
-    <td><code>src / utils</code></td>
-    <td>Folder with utility functions</td>
-  </tr>
-  <tr>
-    <td><code>src / index.html</code></td>
-    <td>Main html file</td>
-  </tr>
-  <tr>
-    <td><code>src / App.tsx</code></td>
-    <td>Main code for the application</td>
-  </tr>
-  <tr>
-    <td><code>src / index.tsx</code></td>
-    <td>Entry point for the module bundler</td>
-  </tr>
-  <tr>
-    <td><code>src / styles.css</code></td>
-    <td>Styles for a spinner that is showed until all JS files are loaded</td>
-  </tr>
-  <tr>
-    <td><code>src / styled.d.ts</code></td>
-    <td>TypeScript declarations that add intellisense to Styled Components theme</td>
-  </tr>
-  <tr>
-    <td><code>src / vite-end.d.ts</code></td>
-    <td>Some Typescript stuff for Vite</td>
-  </tr>
-  <tr>
-    <td colspan="2"></td>
-  </tr>
-  <tr>
-    <td><code>.github / workflows / main.yaml</code></td>
-    <td>CI/CD instructions for Github Actions</td>
-  </tr>
-  <tr>
-    <td colspan="2"></td>
-  </tr>
-  <tr>
-    <td><code>docs</code></td>
-    <td>Folder with additional information, documentation</td>
-  </tr>
-  <tr>
-    <td><code>docs / results</code></td>
-    <td>Folder with screenshots of how the application works after being fully developed</td>
-  </tr>
-  <tr>
-    <td colspan="2"></td>
-  </tr>
-  <tr>
-    <td><code>cypress</code></td>
-    <td>e2e tests</td>
-  </tr>
-  <tr>
-    <td colspan="2"></td>
-  </tr>
-  <tr>
-    <td><code>LICENSE</code></td>
-    <td>MIT License</td>
-  </tr>
-  <tr>
-    <td><code>tsconfig.json</code></td>
-    <td>Configuration for TS compiler</td>
-  </tr>
-  <tr>
-    <td><code>tsconfig.node.json</code></td>
-    <td>Some other configuration for TS compiler? Vite added it, so ... it is what it is</td>
-  </tr>
-  <tr>
-    <td><code>package-lock.json</code></td>
-    <td>JSON file that keeps track of the exact version of every package that is installed so that a product is 100% reproducible in the same way even if packages are updated by their maintainers</td>
-  </tr>
-  <tr>
-    <td><code>package.json</code></td>
-    <td>JSON file that holds various metadata relevant to the project. This file is used to give information to npm that allows it to identify the project as well as handle the project's dependencies</td>
-  </tr>
-  <tr>
-    <td><code>vite.config.js</code></td>
-    <td>Configuration for Vite module bundler</td>
-  </tr>
-  <tr>
-    <td><code>cypress.config.js</code></td>
-    <td>Configuration for Cypress</td>
-  </tr>
-  
-</table>
+```Markdown
+├── 📁 src                    Source files needed for application development
+│   ├── 📁 assets             Static assets: images, icons, favicons
+│   ├── 📁 global             Global styles
+│   ├── 📁 utils              Utility functions
+│   ├── 📁 hooks              Custom React hooks
+│   ├── 📁 components         React components
+|   |   └── 📁 Component Name
+|   |       ├── 📝 index.tsx  Component logic
+|   |       ├── 📝 index.styled.tsx  Component styles
+|   |       └── 📝 index.types.tsx  Component types (optional)
+│   ├── 📁 pages              React page components
+|   |   └── 📁 Page Name
+|   |       ├── 📝 index.tsx  Page logic
+|   |       ├── 📝 index.styled.tsx  Page styles
+|   |       └── 📝 index.types.tsx  Page types (optional)
+│   ├── 📝 index.html         Main html file
+│   ├── 📝 App.tsx            App React component
+│   ├── 📝 index.tsx          Entry point for the module bundler
+│   ├── 📝 styles.css         Styles for the loader displayed until JS is loaded
+│   ├── 📝 styled.d.ts        Types for Styled Components theme
+│   └── 📝 vite-end.d.ts      Some Typescript stuff for Vite
+│
+├── 📁 .github
+│   ├── 📝 dependabot.yml     Instructions for Dependabot
+|   └── 📁 workflows
+|       └── 📝 main.yaml      CI/CD instructions for Github Actions
+|
+├── 📁 docs                   Additional information, documentation 
+│   └── 📁 results            Screenshots of how the application works after being fully developed
+|
+├── 📁 cypress                End-to-end tests
+|
+├── 📝 LICENSE                MIT License. Basically you can do whatever you want with the code
+├── 📝 tsconfig.json          TypeScript configuration file
+├── 📝 tsconfig.node.json     TypeScript configuration file for Vite
+├── 📝 vite.config.js         Vite configuration file
+├── 📝 cypress.config.cjs     Cypress configuration file
+├── 📝 .eslintrc.json         ESLint configuration file
+├── 📝 package-lock.json      Keeps track of the exact version of every package that is installed
+├── 📝 package.json           Various metadata relevant to the project, scripts, dependencies
+├── 📝 .gitignore             Instructions for Git about what files to ignore
+└── 📝 README.md
+```
 
 ## 📦 NPM Packages worth mentioning
 
-- `styled-components` - For CSS-in-JS
-- `react-loading-skeleton` - Used it to show skeletons while fetching new data
-- `react-outside-click-handler` - Used it to close options list in select component when clicking outside
-- `react-router-dom` - Routing between pages
-- `react-transition-group` - Animates showing and hiding of options list
-- `antd` - Used 1 component from it : Image, that helps to open image in a full-screen mode
-- `@tanstack/react-query`, `@tanstack/react-query-devtools` - API requests
-- `cypress` - End-to-end testing
-- `vitest` - Unit testing
+<table>
+  <tr>
+    <td><code>styled-components</code></td>
+    <td>For CSS-in-JS</td>
+  </tr>
+  <tr>
+    <td><code>react-loading-skeleton</code></td>
+    <td>Used it to show skeletons while fetching new data</td>
+  </tr>
+  <tr>
+    <td><code>react-outside-click-handler</code></td>
+    <td>Used it to close options list in select component when clicking outside</td>
+  </tr>
+  <tr>
+    <td><code>react-router-dom</code></td>
+    <td>Routing between pages</td>
+  </tr>
+  <tr>
+    <td><code>react-transition-group</code></td>
+    <td>Animates showing and hiding of options list</td>
+  </tr>
+  <tr>
+    <td><code>antd</code></td>
+    <td>Used 1 component from it : Image, that helps to open image in a full-screen mode</td>
+  </tr>
+  <tr>
+    <td><code>@tanstack/react-query</code>, <br><code>@tanstack/react-query-devtools</code></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><code>cypress</code></td>
+    <td>End-to-end testing</td>
+  </tr>
+  <tr>
+    <td><code>vitest</code></td>
+    <td>Unit testing</td>
+  </tr>
+</table>
 
 ## 💡 Details
 
