@@ -137,27 +137,27 @@ Figma prototype: https://www.figma.com/file/9TUVcloltVpCdi5LHVCiVT/Countries
 ## 📁 File Structure
 
 ```Markdown
-├── 📁 src                    Source files needed for application development
-│   ├── 📁 assets             Static assets: images, icons, favicons
-│   ├── 📁 global             Global styles
-│   ├── 📁 utils              Utility functions
-│   ├── 📁 hooks              Custom React hooks
-│   ├── 📁 components         React components
+├── 📁 src                            Source files needed for application development
+│   ├── 📁 assets                     Static assets: images, icons, favicons
+│   ├── 📁 global                     Global styles
+│   ├── 📁 utils                      Utility functions
+│   ├── 📁 hooks                      Custom React hooks
+│   ├── 📁 components                 React components
 |   |   └── 📁 Component Name
-|   |       ├── 📝 index.tsx  Component logic
-|   |       ├── 📝 index.styled.tsx  Component styles
-|   |       └── 📝 index.types.tsx  Component types (optional)
-│   ├── 📁 pages              React page components
+|   |       ├── 📝 index.tsx          Component logic
+|   |       ├── 📝 index.styled.tsx   Component styles
+|   |       └── 📝 index.types.tsx    Component types (optional)
+│   ├── 📁 pages                      React page components
 |   |   └── 📁 Page Name
-|   |       ├── 📝 index.tsx  Page logic
-|   |       ├── 📝 index.styled.tsx  Page styles
-|   |       └── 📝 index.types.tsx  Page types (optional)
-│   ├── 📝 index.html         Main html file
-│   ├── 📝 App.tsx            App React component
-│   ├── 📝 index.tsx          Entry point for the module bundler
-│   ├── 📝 styles.css         Styles for the loader displayed until JS is loaded
-│   ├── 📝 styled.d.ts        Types for Styled Components theme
-│   └── 📝 vite-end.d.ts      Some Typescript stuff for Vite
+|   |       ├── 📝 index.tsx          Page logic
+|   |       ├── 📝 index.styled.tsx   Page styles
+|   |       └── 📝 index.types.tsx    Page types (optional)
+│   ├── 📝 index.html                 Main html file
+│   ├── 📝 App.tsx                    App React component
+│   ├── 📝 index.tsx                  Entry point for the module bundler
+│   ├── 📝 styles.css                 Styles for the loader displayed until JS is loaded
+│   ├── 📝 styled.d.ts                Types for Styled Components theme
+│   └── 📝 vite-end.d.ts              Some Typescript stuff for Vite
 │
 ├── 📁 .github
 │   ├── 📝 dependabot.yml     Instructions for Dependabot
