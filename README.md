@@ -137,48 +137,48 @@ Figma prototype: https://www.figma.com/file/9TUVcloltVpCdi5LHVCiVT/Countries
 ## 📁 File Structure
 
 ```Markdown
-├── 📁 src                            Source files needed for application development
-│   ├── 📁 assets                     Static assets: images, icons, favicons
-│   ├── 📁 global                     Global styles
-│   ├── 📁 utils                      Utility functions
-│   ├── 📁 hooks                      Custom React hooks
-│   ├── 📁 components                 React components
-|   |   └── 📁 Component Name
-|   |       ├── 📝 index.tsx          Component logic
-|   |       ├── 📝 index.styled.tsx   Component styles
-|   |       └── 📝 index.types.tsx    Component types (optional)
-│   ├── 📁 pages                      React page components
-|   |   └── 📁 Page Name
-|   |       ├── 📝 index.tsx          Page logic
-|   |       ├── 📝 index.styled.tsx   Page styles
-|   |       └── 📝 index.types.tsx    Page types (optional)
-│   ├── 📝 index.html                 Main html file
-│   ├── 📝 App.tsx                    App React component
-│   ├── 📝 index.tsx                  Entry point for the module bundler
-│   ├── 📝 styles.css                 Styles for the loader displayed until JS is loaded
-│   ├── 📝 styled.d.ts                Types for Styled Components theme
-│   └── 📝 vite-end.d.ts              Some Typescript stuff for Vite
-│
 ├── 📁 .github
 |   ├── 📁 workflows
 |   |   └── 📝 main.yaml      CI/CD instructions for Github Actions
 │   └── 📝 dependabot.yml     Instructions for Dependabot
 |
+├── 📁 cypress                End-to-end tests
+│
 ├── 📁 docs                   Additional information, documentation 
 │   └── 📁 results            Screenshots of how the application works after being fully developed
 |
-├── 📁 cypress                End-to-end tests
+├── 📁 src                            Source files needed for application development
+│   ├── 📁 assets                     Static assets: images, icons, favicons
+│   ├── 📁 components                 React components
+|   |   └── 📁 Component Name
+|   |       ├── 📝 index.tsx          Component logic
+|   |       ├── 📝 index.styled.tsx   Component styles
+|   |       └── 📝 index.types.tsx    Component types (optional)
+│   ├── 📁 global                     Global styles
+│   ├── 📁 hooks                      Custom React hooks
+│   ├── 📁 pages                      React page components
+|   |   └── 📁 Page Name
+|   |       ├── 📝 index.tsx          Page logic
+|   |       ├── 📝 index.styled.tsx   Page styles
+|   |       └── 📝 index.types.tsx    Page types (optional)
+│   ├── 📁 utils                      Utility functions
+│   ├── 📝 App.tsx                    App React component
+│   ├── 📝 index.html                 Main html file
+│   ├── 📝 index.tsx                  Entry point for the module bundler
+│   ├── 📝 styled.d.ts                Types for Styled Components theme
+│   ├── 📝 styles.css                 Styles for the loader displayed until JS is loaded
+│   └── 📝 vite-end.d.ts              Some Typescript stuff for Vite
 |
-├── 📝 LICENSE                MIT License. Basically you can do whatever you want with the code
-├── 📝 tsconfig.json          TypeScript configuration file
-├── 📝 tsconfig.node.json     TypeScript configuration file for Vite
-├── 📝 vite.config.js         Vite configuration file
-├── 📝 cypress.config.cjs     Cypress configuration file
 ├── 📝 .eslintrc.json         ESLint configuration file
+├── 📝 .gitignore             Instructions for Git about what files to ignore
+├── 📝 LICENSE                MIT License. Basically you can do whatever you want with the code
+├── 📝 README.md
+├── 📝 cypress.config.cjs     Cypress configuration file
 ├── 📝 package-lock.json      Keeps track of the exact version of every package that is installed
 ├── 📝 package.json           Various metadata relevant to the project, scripts, dependencies
-├── 📝 .gitignore             Instructions for Git about what files to ignore
-└── 📝 README.md
+├── 📝 tsconfig.json          TypeScript configuration file
+├── 📝 tsconfig.node.json     TypeScript configuration file for Vite
+└── 📝 vite.config.js         Vite configuration file
 ```
 
 ## 📦 NPM Packages worth mentioning
