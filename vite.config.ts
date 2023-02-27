@@ -13,6 +13,7 @@ export default defineConfig({
   },
   server: {
     open: true,
+    port: 5173,
   },
   preview: {
     open: true,
