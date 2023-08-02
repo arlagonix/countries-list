@@ -18,11 +18,30 @@ export const StyledCountryCard = styled.article`
   }
 `;
 
+export const StyledImageContainer = styled.div`
+  width: 100%;
+  height: 180px;
+  position: relative;
+
+  display: grid;
+  place-items: center;
+`;
+
 export const StyledImage = styled.img`
   display: block;
   width: 100%;
-  height: 180px;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+`;
+
+export const StyledFallbackText = styled.p`
+  color: ${({ theme }) => theme.colors.countryCard.text};
+  font-size: 24px;
+  font-weight: 700;
 `;
 
 export const HeaderContainer = styled.div`
@@ -36,7 +55,7 @@ export const HeaderContainer = styled.div`
 
 export const Header = styled.h2`
   color: ${({ theme }) => theme.colors.countryCard.text};
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 100%;
   width: 100%;

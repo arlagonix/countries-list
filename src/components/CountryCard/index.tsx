@@ -13,6 +13,8 @@ import {
   HeaderContainer,
   StyledCountryCard,
   PropertiesContainer,
+  StyledImageContainer,
+  StyledFallbackText,
 } from "./index.styled";
 
 import Skeleton from "react-loading-skeleton";
@@ -56,12 +58,17 @@ function CountryCard({
         window.scroll(0, 0);
       }}
     >
-      <StyledImage
-        src={flagURL}
-        referrerPolicy="no-referrer"
-        alt={`${countryName} flag`}
-        draggable="false"
-      />
+      <StyledImageContainer>
+        <StyledFallbackText>Unable to load image</StyledFallbackText>
+        <StyledImage
+          src={flagURL}
+          referrerPolicy="no-referrer"
+          alt={`${countryName} flag`}
+          width={100}
+          height={180}
+          draggable="false"
+        />
+      </StyledImageContainer>
       <HR />
       <HeaderContainer>
         <Header data-test="country-card-header">{countryName}</Header>
